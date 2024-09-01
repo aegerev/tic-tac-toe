@@ -1,6 +1,6 @@
 # Tic-Tac-Toe App: Parent and Child Rendering
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was created with [Create React App](https://github.com/facebook/create-react-app).
 
 ## ABOUT
 Play Tic-Tac-Toe online! This fun, free, and exciting game lets you think of unlimited scenarios to beat the enemy! Just be sure to reset the page every time to play again.
@@ -18,6 +18,5 @@ We will be performing a few maintenance updates on the site, stay tuned!
 
 
 ### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Get started here: [[https://facebook.github.io/create-react-app/docs/deployment](https://aegerev.github.io/tic-tac-toe)]([https://facebook.github.io/create-react-app/docs/deployment](https://aegerev.github.io/tic-tac-toe))
 
