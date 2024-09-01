@@ -3,18 +3,19 @@ import '../App.css'
 
 function Square(props) {
     return (
-        <div className={`squareWrapper ${
-            props.value !== "+"
-                ? props.value === "X"
-                    ? "redBg"
-                    : "blueBg"
-                : ""
-        }`}
+        <div
+            className={`squareWrapper ${
+                props.value !== "+"
+                    ? props.value === "X"
+                        ? "redBg"
+                        : "blueBg"
+                    : ""
+            }`}
+            onClick={props.onClick}
         >
-        {props.value}
-    </div>
-
-    )
+            {props.value}
+        </div>
+    );
 }
 
 export default Square;
