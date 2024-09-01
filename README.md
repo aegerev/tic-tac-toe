@@ -18,5 +18,5 @@ We will be performing a few maintenance updates on the site, stay tuned!
 
 
 ### Deployment
-Get started here: [[https://facebook.github.io/create-react-app/docs/deployment](https://aegerev.github.io/tic-tac-toe)]([https://facebook.github.io/create-react-app/docs/deployment](https://aegerev.github.io/tic-tac-toe))
+Get started here: https://aegerev.github.io/tic-tac-toe
 
