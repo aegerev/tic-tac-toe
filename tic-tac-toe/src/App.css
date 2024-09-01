@@ -1,13 +1,42 @@
-.gameWrapper {
+.appWrapper {
+  width: 70vh;
+  height: 70vh;
+  margin: 3rem auto;
+  text-align: center;
+  border: 1px solid blue;
+}
+
+.reload-text {
+  font-size: 0.75rem;
+}
+
+.squareWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  border: 1px solid black;
+ }
+
+ .redBg {
+  background-color: #ffe3e3;
+ }
+
+ .blueBg {
+  background-color: #d0ebff;
+ }
+
+ .gameWrapper {
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
-
-.rowWrapper {
+ }
+ 
+ .rowWrapper {
   height: 100%;
-  display: flex; 
-  justify-content: space-between
-}
+  display: flex;
+  justify-content: space-between;
+ }
