@@ -9,6 +9,39 @@ function Game() {
         ["+", "+", "+"],
     ]);
 
+    function checkWinner(board, rowIdx, colIdx) {
+        const currentSymbol = board[rowIdx][colIdx];
+
+        // check that row
+        if (
+            board[rowIdx][0] === currentSymbol &&
+            board[rowIdx][1] === currentSymbol &&
+            board[rowIdx][2] === currentSymbol
+        )
+            console.log(`${board[rowIdx][colIdx]} is the winner`);
+
+        // check that column
+        if (
+            board[0][colIdx] === currentSymbol &&
+            board[1][colIdx] === currentSymbol &&
+            board[2][colIdx] === currentSymbol
+        )
+            console.log(`${board[rowIdx][colIdx]} is the winner`);
+
+        // check diagonals
+        if (
+            (rowIdx === colIdx &&
+                board[0][0] === currentSymbol &&
+                board[1][1] === currentSymbol &&
+                board[2][2] === currentSymbol) ||
+            (rowIdx + colIdx === 2 &&
+                board[0][2] === currentSymbol &&
+                board[1][1] === currentSymbol &&
+                board[2][0] === currentSymbol)
+        )
+            console.log(`${board[rowIdx][colIdx]} is the winner`);
+    }
+
     function changeSquareValue(rowIdx, colIdx) {
         const newBoard = [...board];
         newBoard[rowIdx] = [...newBoard[rowIdx]];
@@ -18,7 +51,7 @@ function Game() {
             newBoard[rowIdx][colIdx] = "O";
         else newBoard[rowIdx][colIdx] = "X";
 
-
+        checkWinner(newBoard, rowIdx, colIdx);
         setBoard(newBoard);
     }
 
