@@ -3,16 +3,19 @@ import '../App.css';
 import Square from './Square';
 
 function Game() {
+    const [currentUser, setCurrentUser] = useState("X")
+
+    
     const [board, setBoard] = useState([
-        ["+", "+", "+"],
-        ["+", "+", "+"],
-        ["+", "+", "+"],
+        [" ", " ", " "],
+        [" ", " ", " "],
+        [" ", " ", " "],
     ]);
 
     function checkWinner(board, rowIdx, colIdx) {
         const currentSymbol = board[rowIdx][colIdx];
 
-        // check that row
+        // check the row
         if (
             board[rowIdx][0] === currentSymbol &&
             board[rowIdx][1] === currentSymbol &&
@@ -20,7 +23,7 @@ function Game() {
         )
             console.log(`${board[rowIdx][colIdx]} is the winner`);
 
-        // check that column
+        // check the column
         if (
             board[0][colIdx] === currentSymbol &&
             board[1][colIdx] === currentSymbol &&
@@ -46,11 +49,31 @@ function Game() {
         const newBoard = [...board];
         newBoard[rowIdx] = [...newBoard[rowIdx]];
 
-        if (newBoard[rowIdx][colIdx] === "+") newBoard[rowIdx][colIdx] = "X";
-        else if (newBoard[rowIdx][colIdx] === "X")
-            newBoard[rowIdx][colIdx] = "O";
-        else newBoard[rowIdx][colIdx] = "X";
+        if(newBoard[rowIdx][colIdx] === "X" || newBoard[rowIdx][colIdx] === "O") {
+            return;
+        }
 
+        let bUseState = true;
+        
+
+        if(bUseState) {
+            if(currentUser === "X") {
+                newBoard[rowIdx][colIdx] = "X";
+                setCurrentUser("O");
+            } else {
+                newBoard[rowIdx][colIdx] = "O";
+                setCurrentUser("X");   
+            }
+
+        } else {
+            if (newBoard[rowIdx][colIdx] === "+") {
+                    newBoard[rowIdx][colIdx] = "X";
+            } else if (newBoard[rowIdx][colIdx] === "X") {
+                    newBoard[rowIdx][colIdx] = "O";
+             } else {
+                    newBoard[rowIdx][colIdx] = "X";
+        }
+    }
         checkWinner(newBoard, rowIdx, colIdx);
         setBoard(newBoard);
     }
@@ -59,7 +82,7 @@ function Game() {
         <div className="gameWrapper">
             {board.map((row, rowIdx) => {
                 return (
-                    <div key={rowIdx} className="rowWrapper">
+                   <div key={rowIdx} className="rowWrapper">
                         {row.map((col, colIdx) => {
                             return (
                                 <Square
@@ -71,14 +94,20 @@ function Game() {
                                     key={colIdx}
                                     value={col}
                                 />
+                                
                             );
+
                         })}
+                        
                     </div>
                 );
             })}
         </div>
+
     );
 }
+
+
 
 
 export default Game;
