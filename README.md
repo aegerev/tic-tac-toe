@@ -10,8 +10,8 @@ Play a game of Tic-Tac-Toe! We've made sure that the classic rules apply.
 
 ### UPDATES
 1.04: We've released new functionalities! This includes: <br/>
-    - Replaced the console.log() message with an alert() message, so the user can see who is the winner
-    - Added functionality so that when there is a winner, the alert() message pops up, the screen is shown For A Moment, and the screen is refreshed.
+    - Replaced the console.log() message with an alert() message, so the user can see who is the winner <br/>
+    - Added functionality so that when there is a winner, the alert() message pops up, the screen is shown For A Moment, and the screen is refreshed. <br/>
 1.03: We've released a whole slew of maintenance updates!! This includes:  <br/>
     - Added Current User functionality<br/>
     - Added functionality where if a square is busy, that square is not changed<br/>
