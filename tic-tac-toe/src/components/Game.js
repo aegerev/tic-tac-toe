@@ -12,25 +12,32 @@ function Game() {
         [" ", " ", " "],
     ]);
 
+    function refreshPage() {
+
+        window.location.reload(false);
+    }
+
     function checkWinner(board, rowIdx, colIdx) {
         const currentSymbol = board[rowIdx][colIdx];
-
+        let bReset = false;
         // check the row
         if (
             board[rowIdx][0] === currentSymbol &&
             board[rowIdx][1] === currentSymbol &&
             board[rowIdx][2] === currentSymbol
-        )
-            console.log(`${board[rowIdx][colIdx]} is the winner`);
+        ) {
+            bReset = true;
+        }
 
         // check the column
         if (
             board[0][colIdx] === currentSymbol &&
             board[1][colIdx] === currentSymbol &&
             board[2][colIdx] === currentSymbol
-        )
-            console.log(`${board[rowIdx][colIdx]} is the winner`);
-
+        ) {
+            bReset = true; 
+        }
+            
         // check diagonals
         if (
             (rowIdx === colIdx &&
@@ -41,9 +48,29 @@ function Game() {
                 board[0][2] === currentSymbol &&
                 board[1][1] === currentSymbol &&
                 board[2][0] === currentSymbol)
-        )
-            console.log(`${board[rowIdx][colIdx]} is the winner`);
+        ) {
+            bReset = true;
+        }
+        if(bReset) {   
+            alert(`${board[rowIdx][colIdx]} is the winner`); 
+            resetBoard(); 
+            setBoard(board);  
+            refreshPage(); 
+        }
+        
     }
+
+
+    function resetBoard() {
+        setBoard([
+            [" ", " ", " "],
+            [" ", " ", " "],
+            [" ", " ", " "],
+        ]);
+        
+    }
+
+
 
     function changeSquareValue(rowIdx, colIdx) {
         const newBoard = [...board];
@@ -53,6 +80,17 @@ function Game() {
             return;
         }
 
+    //     if(currentUser === "X") {
+    //         newBoard[rowIdx][colIdx] = "X";
+    //         setCurrentUser("O");
+    //     } else {
+    //         newBoard[rowIdx][colIdx] = "O";
+    //         setCurrentUser("X");
+    //     }
+
+    //     checkWinner(newBoard, rowIdx, colIdx);
+    //     setBoard(newBoard);
+    // }
         let bUseState = true;
         
 
@@ -76,6 +114,7 @@ function Game() {
     }
         checkWinner(newBoard, rowIdx, colIdx);
         setBoard(newBoard);
+        //resetBoard();
     }
 
     return (
